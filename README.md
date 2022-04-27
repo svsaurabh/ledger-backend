@@ -1,3 +1,3 @@
 # ledger-backend
 
-## Ledger backend application
+## Ledger Backend application
