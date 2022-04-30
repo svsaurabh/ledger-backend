@@ -18,7 +18,7 @@ const UserSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
     },
-    UpdatedAt: {
+    updatedAt: {
         type: Date,
     },
 });
