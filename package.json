@@ -23,6 +23,7 @@
     },
     "homepage": "https://github.com/svsaurabh/ledger-backend#readme",
     "devDependencies": {
+        "cors": "^2.8.5",
         "eslint": "^8.14.0",
         "eslint-config-prettier": "^8.5.0",
         "nodemon": "^2.0.16",
