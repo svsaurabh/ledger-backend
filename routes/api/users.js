@@ -35,6 +35,9 @@ router.post("/", async (req, res) => {
     }
 });
 
+//@route GET api/user
+//@desc Get User by email
+//@access public
 router.get("/:email", async (req, res) => {
     try {
         const user = await User.findOne({ email: req.params.email });
@@ -49,6 +52,9 @@ router.get("/:email", async (req, res) => {
     }
 });
 
+//@route GET api/user
+//@desc Get User
+//@access public
 router.get("/", async (req, res) => {
     try {
         const user = await User.find();
@@ -58,6 +64,9 @@ router.get("/", async (req, res) => {
     }
 });
 
+//@route PUT api/user/email
+//@desc Updae User by email id
+//@access public
 router.put("/:email", async (req, res) => {
     const { firstName, lastName } = req.body;
     const updateData = { firstName, lastName, updatedAt: new Date() };
@@ -81,6 +90,9 @@ router.put("/:email", async (req, res) => {
     }
 });
 
+//@route DELETE api/user/email
+//@desc Delete User by email
+//@access public
 router.delete("/:email", async (req, res) => {
     try {
         let found = await User.findOneAndUpdate(
