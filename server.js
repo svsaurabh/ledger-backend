@@ -8,7 +8,7 @@ require("dotenv").config();
 connectDB();
 
 const PORT = process.env.PORT || 3000;
-app.options("*", cors());
+app.use(cors({ origin: "*" }));
 app.use(express.json({ extended: false }));
 
 app.use("/api/users", require("./routes/api/users"));
