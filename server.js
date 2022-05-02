@@ -12,6 +12,7 @@ app.use(cors({ origin: "*" }));
 app.use(express.json({ extended: false }));
 
 app.use("/api/users", require("./routes/api/users"));
+app.use("/api/auth", require("./routes/api/auth"));
 app.get("/test", (req, res) => {
     res.status(200).send({ message: "test" });
 });
