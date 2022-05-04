@@ -45,7 +45,7 @@ router.get("/:email", middleware, async (req, res) => {
         if (!user) {
             return res
                 .status(400)
-                .json({ errors: [{ mesage: "User does not exist" }] });
+                .json({ errors: [{ message: "User does not exist" }] });
         }
         res.status(200).send(user);
     } catch (err) {
@@ -79,7 +79,7 @@ router.put("/:email", middleware, async (req, res) => {
         if (found == null) {
             return res
                 .status(400)
-                .json({ errors: [{ mesage: "User does not exist" }] });
+                .json({ errors: [{ message: "User does not exist" }] });
         }
         await res.status(200).json({
             message: "User has been successfully updated",
@@ -103,7 +103,7 @@ router.delete("/:email", middleware, async (req, res) => {
         if (found == null) {
             return res
                 .status(400)
-                .json({ errors: [{ mesage: "User does not exist" }] });
+                .json({ errors: [{ message: "User does not exist" }] });
         }
         await res
             .status(200)
