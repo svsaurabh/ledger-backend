@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const bcrypt = require("bcryptjs");
 const User = require("../../models/Users");
+const middleware = require("../middleware/auth");
 
 //@route POST api/user
 //@desc Register User
@@ -38,7 +39,7 @@ router.post("/", async (req, res) => {
 //@route GET api/user
 //@desc Get User by email
 //@access public
-router.get("/:email", async (req, res) => {
+router.get("/:email", middleware, async (req, res) => {
     try {
         const user = await User.findOne({ email: req.params.email });
         if (!user) {
@@ -53,9 +54,9 @@ router.get("/:email", async (req, res) => {
 });
 
 //@route GET api/user
-//@desc Get User
+//@desc Get All Users
 //@access public
-router.get("/", async (req, res) => {
+router.get("/", middleware, async (req, res) => {
     try {
         const user = await User.find();
         res.json(user);
@@ -65,9 +66,9 @@ router.get("/", async (req, res) => {
 });
 
 //@route PUT api/user/email
-//@desc Updae User by email id
+//@desc Update User by email id
 //@access public
-router.put("/:email", async (req, res) => {
+router.put("/:email", middleware, async (req, res) => {
     const { firstName, lastName } = req.body;
     const updateData = { firstName, lastName, updatedAt: new Date() };
     try {
@@ -91,9 +92,9 @@ router.put("/:email", async (req, res) => {
 });
 
 //@route DELETE api/user/email
-//@desc Delete User by email
+//@desc Delete User by email ☠️☠️
 //@access public
-router.delete("/:email", async (req, res) => {
+router.delete("/:email", middleware, async (req, res) => {
     try {
         let found = await User.findOneAndUpdate(
             { email: req.params.email, isActive: true },
