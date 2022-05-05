@@ -81,7 +81,7 @@ router.put("/:email", middleware, async (req, res) => {
                 .status(400)
                 .json({ errors: [{ message: "User does not exist" }] });
         }
-        await res.status(200).json({
+        res.status(200).json({
             message: "User has been successfully updated",
             data: found,
         });
@@ -105,9 +105,7 @@ router.delete("/:email", middleware, async (req, res) => {
                 .status(400)
                 .json({ errors: [{ message: "User does not exist" }] });
         }
-        await res
-            .status(200)
-            .json({ message: "User has been successfully deleted" });
+        res.status(200).json({ message: "User has been successfully deleted" });
     } catch (err) {
         console.log(err.message);
         res.status(500).send("Internal Server error");
