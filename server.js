@@ -11,8 +11,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors({ origin: "*" }));
 app.use(express.json({ extended: false }));
 
-app.use("/api/users", require("./routes/api/users"));
-app.use("/api/auth", require("./routes/api/auth"));
+app.use("/api", require("./routes"));
 app.get("/test", (req, res) => {
     res.status(200).send({ message: "test" });
 });
